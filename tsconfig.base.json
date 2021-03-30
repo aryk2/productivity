@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@productivity/to-do": ["libs/to-do/src/index.ts"]
+      "@productivity/to-do": ["libs/to-do/src/index.ts"],
+      "@productivity/interfaces": ["libs/interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

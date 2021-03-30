@@ -1,25 +1,30 @@
 import React, { ChangeEvent } from 'react';
 import {
   Grid,
-  Checkbox,
-  Typography
+  Checkbox
 } from '@material-ui/core'
+import { ListFunctions } from '../../hooks/useList'
+import { ItemText } from '../item-text/ItemText'
+import { ItemEdit } from '../item-edit/ItemEdit'
+import { ItemMode } from '@productivity/interfaces'
 
 export interface ItemProps {
   value: boolean
   name: string
-  handleChange: (name: string, value: boolean) => void
+  getListFunction: (fn: ListFunctions) => (...args: unknown[]) => void
   title: string
+  mode: ItemMode
   description?: string
   disabled?: boolean
 }
 
 export const Item = (props: ItemProps) => {
-  const { value, name, handleChange, title, description, disabled } = props
-  // do I need a useState to manage checked value / re-render
+  const { value, name, getListFunction, title, description, disabled, mode } = props
   const onChange = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
-    handleChange(event.target.name, checked)
+    getListFunction(ListFunctions.handleChange)(event.target.name, checked)
   }
+
+  const isDisabled = (disabled && disabled) || mode === ItemMode.edit
 
   return (
     <Grid
@@ -28,29 +33,32 @@ export const Item = (props: ItemProps) => {
     justify="flex-start"
     alignItems="center"
     >
-      <Grid item>
+      <Grid item xs={1}>
         <Checkbox
           checked={value}
           onChange={onChange}
           name={name}
           color="primary"
-          disabled={disabled && disabled}
+          disabled={isDisabled}
         />
       </Grid>
-      <Grid item>
-        <Grid
-          container
-          direction="column"
-          justify="center"
-          alignItems="flex-start"
-        >
-          <Grid item>
-            <Typography>{title}</Typography>
-          </Grid>
-          {description && <Grid item>
-            <Typography>{description}</Typography>
-          </Grid> }
-        </Grid>
+      <Grid item xs={11}>
+        {mode === ItemMode.display ?
+          <ItemText
+            name={name}
+            title={title}
+            description={description}
+            getListFunction={getListFunction}
+            value={value}
+          />
+        :
+          <ItemEdit
+            name={name}
+            title={title}
+            description={description}
+            getListFunction={getListFunction}
+          />
+        }
       </Grid>
     </Grid>
   )
