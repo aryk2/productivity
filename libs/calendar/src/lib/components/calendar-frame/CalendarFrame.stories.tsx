@@ -63,25 +63,25 @@ export const SevenDayCalendarFrameStyled = () => {
     >
       <Grid item xs={12}>
         <CalendarFrame >
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item style={{width: '14%'}}>
             <DayColumn />
           </Grid>
         </CalendarFrame>
