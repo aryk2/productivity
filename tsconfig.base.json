@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@productivity/to-do": ["libs/to-do/src/index.ts"],
-      "@productivity/interfaces": ["libs/interfaces/src/index.ts"]
+      "@productivity/interfaces": ["libs/interfaces/src/index.ts"],
+      "@productivity/calendar": ["libs/calendar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

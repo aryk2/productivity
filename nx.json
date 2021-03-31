@@ -28,6 +28,7 @@
     "client-e2e": { "tags": [], "implicitDependencies": ["client"] },
     "server": { "tags": [] },
     "to-do": { "tags": [] },
-    "interfaces": { "tags": [] }
+    "interfaces": { "tags": [] },
+    "calendar": { "tags": [] }
   }
 }

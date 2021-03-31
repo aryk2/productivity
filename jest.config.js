@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/server',
     '<rootDir>/libs/to-do',
     '<rootDir>/libs/interfaces',
+    '<rootDir>/libs/calendar',
   ],
 };
